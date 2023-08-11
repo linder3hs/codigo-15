@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios</title>
+  </head>
+  <body>
+    <h1>Registro de usuarios</h1>
+    <form action="">
+      <p>
+        <input type="text" placeholder="Nombre" name="nombre" />
+      </p>
+      <p>
+        <input type="text" placeholder="Apellido" name="apellido" />
+      </p>
+      <p>
+        <input type="email" placeholder="E-mail" name="correo" />
+      </p>
+      <p>
+        <input
+          type="date"
+          placeholder="Fecha de nacimiento"
+          name="fecha_de_nacimiento"
+        />
+      </p>
+      <p>
+        <input type="number" placeholder="Ingresa tu DNI" name="dni" />
+      </p>
+      <p>
+        <input type="tel" placeholder="Telefono" name="telefono" />
+      </p>
+      <p>
+        <input
+          type="password"
+          placeholder="Ingrese su contraseña"
+          name="password"
+        />
+      </p>
+      <p>Genero</p>
+      <p>
+        <label for="masculino">
+          Masculino
+          <input id="masculino" type="radio" name="genero" value="masculino" />
+        </label>
+      </p>
+      <p>
+        <label for="">
+          Femenio
+          <input type="radio" name="genero" value="femenino" />
+        </label>
+      </p>
+      <p>
+        <label for="">
+          Otro
+          <input type="radio" name="genero" value="otro" />
+        </label>
+      </p>
+      <input type="text" value="PERU" readonly />
+      <p>Paises</p>
+      <select name="pais" id="">
+        <option value="" disabled selected>Paises</option>
+        <option value="peru">Perú</option>
+        <option value="argentina">Argentina</option>
+        <option value="chile">Chile</option>
+        <option value="colombia">Colombia</option>
+      </select>
+      <p>Cursos</p>
+      <p>JavaScript <input type="checkbox" name="curso_1" /></p>
+      <p>HTML <input type="checkbox" name="curso_2" /></p>
+      <p>CSS <input type="checkbox" name="curso_3" /></p>
+      <p>React JS <input type="checkbox" name="curso_4" /></p>
+      <p>Next JS <input type="checkbox" name="curso_5" /></p>
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>
