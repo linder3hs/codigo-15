@@ -28,16 +28,21 @@ body {
   width: 100%;
   border-radius: 16px;
 }
+/* 100 - 900 */
+/* parrafos: 400 */
+/* h1 - h6: bold (700) negrita */
 
 .title {
   margin-top: 25px;
   color: hsl(218, 44%, 22%);
+  font-weight: 100;
 }
 
 .description {
   margin-top: 15px;
   margin-bottom: 20px;
   color: hsl(220, 15%, 55%);
+  font-weight: 900;
 }
 
 .box div {

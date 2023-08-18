@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* hacer un mini tailwind: es decir crear clases genericas y reutilizarlas */
+.flex {
+  display: flex;
+}
+
+.radius-md {
+  border-radius: 20px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.p-25 {
+  padding: 25px;
+}
+
+.container {
+  background-color: hsl(231, 11%, 63%);
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.container__box {
+  background-color: #fff;
+  height: 70vh;
+  width: 70%;
+}
+
+.container__box div:first-child {
+  width: 25%;
+  background: url("../assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
