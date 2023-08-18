@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  background-color: hsl(231, 11%, 63%);
+  background-color: hsl(217, 100%, 97%);
   height: 100vh;
   align-items: center;
   justify-content: center;
@@ -35,12 +35,85 @@ body {
   background-color: #fff;
   height: 70vh;
   width: 70%;
+  justify-content: space-between;
 }
 
-.container__box div:first-child {
+.container__box > div:first-child {
   width: 25%;
   background: url("../assets/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.step__container {
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.step__number {
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+  border: solid #fff;
+}
+
+.step__number:hover {
+  background-color: hsl(206, 94%, 87%);
+  border: solid hsl(206, 94%, 87%);
+  color: #000;
+  cursor: pointer;
+}
+
+.text-step {
+  text-transform: uppercase;
+  font-size: 13px;
+  color: hsl(229, 24%, 87%);
+  margin-bottom: 5px;
+}
+
+.text-info {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.mt-20 {
+  padding-top: 40px;
+}
+
+.container__info {
+  width: 60%;
+}
+
+.title__info {
+  font-size: 32px;
+}
+
+.description__info {
+  color: hsl(229, 24%, 87%);
+  margin-top: 10px;
+}
+
+.input__info {
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.input__info > span {
+  color: hsl(213, 96%, 18%);
+}
+
+.input__info > input {
+  width: 60%;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  border: solid 1px;
+  outline: none;
 }
