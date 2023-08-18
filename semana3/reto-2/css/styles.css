@@ -34,7 +34,7 @@ body {
 .container__box {
   background-color: #fff;
   height: 70vh;
-  width: 70%;
+  width: 50%;
   justify-content: space-between;
 }
 
@@ -110,10 +110,33 @@ body {
 }
 
 .input__info > input {
-  width: 60%;
-  margin-top: 20px;
+  width: 75%;
+  margin-top: 10px;
   padding: 15px;
   border-radius: 8px;
-  border: solid 1px;
+  border: solid 1px hsl(231, 11%, 63%);
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  color: hsl(213, 96%, 18%);
   outline: none;
+}
+
+.input__info > input:hover {
+  cursor: pointer;
+  border: solid hsl(243, 100%, 62%) 1px;
+}
+
+.btn__next-container {
+  text-align: right;
+  width: 80%;
+}
+
+.btn__next {
+  background-color: hsl(213, 96%, 18%);
+  color: #fff;
+  border: none;
+  margin-top: 40px;
+  padding: 15px 25px;
+  border-radius: 6px;
+  font-family: "Ubuntu", sans-serif;
 }
