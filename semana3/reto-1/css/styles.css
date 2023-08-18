@@ -1,0 +1,46 @@
+/* procuremos empezar con un reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: hsl(212, 45%, 89%);
+}
+
+.box {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 25px;
+  width: 20%;
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.title {
+  margin-top: 25px;
+  color: hsl(218, 44%, 22%);
+}
+
+.description {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  color: hsl(220, 15%, 55%);
+}
+
+.box div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
