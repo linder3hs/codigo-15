@@ -34,13 +34,79 @@ body {
 .container__box {
   background-color: #fff;
   height: 70vh;
-  width: 70%;
+  width: 50%;
+  gap: 60px;
 }
 
-.container__box div:first-child {
+.container__box > div:first-child {
   width: 25%;
   background: url("../assets/images/bg-sidebar-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.step__container {
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.step__circle {
+  border: solid #fff 1px;
+  padding: 9px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.step__circle:hover {
+  color: #000;
+  background-color: hsl(206, 94%, 87%);
+}
+.step__title {
+  color: hsl(217, 100%, 97%);
+  font-size: 13px;
+}
+
+.step__description {
+  font-weight: bold;
+  margin-top: 5px;
+  letter-spacing: 1px;
+}
+
+.title__info {
+  font-size: 36px;
+}
+
+.description__info {
+  margin-top: 10px;
+  color: hsl(229, 24%, 87%);
+}
+
+.container__input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.container__input > input {
+  font-family: "Ubuntu", sans-serif;
+  padding: 12.5px;
+  font-size: 16px;
+  border: solid 1px hsl(229, 24%, 87%);
+  border-radius: 6px;
+  outline: none;
 }
