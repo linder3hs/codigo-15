@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  color: #fff;
+}
+
+/* .container {
+  display: grid;
+  grid-template-columns: 200px 100px;
+  grid-template-rows: 100px 50px 20px 70px;
+}
+
+.container div {
+  border: solid;
+} */
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "cabecera navegacion navegacion navegacion"
+    "hero hero hero hero"
+    "main main empty image"
+    "main main empty extra"
+    "banner banner banner banner";
+}
+
+.header {
+  background-color: rgb(26, 26, 57);
+  grid-area: cabecera;
+  height: 5vh;
+}
+
+.menu {
+  background-color: rgb(252, 73, 73);
+  grid-area: navegacion;
+}
+
+.hero {
+  background-color: skyblue;
+  grid-area: hero;
+  height: 60vh;
+}
+
+.main {
+  background-color: rgb(26, 26, 57);
+  grid-area: main;
+  height: 25vh;
+}
+
+.empty {
+  background-color: #fff;
+  grid-area: empty;
+}
+
+.image {
+  background-color: rgb(201, 255, 201);
+  color: #000;
+  grid-area: image;
+}
+
+.extra {
+  background-color: rgb(92, 167, 92);
+  grid-area: extra;
+}
+
+.banner {
+  background-color: rgb(255, 205, 40);
+  grid-area: banner;
+  height: 10vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    grid-template-areas:
+      "cabecera"
+      "navegacion"
+      "hero"
+      "main"
+      "banner"
+      "extra"
+      "image"
+      "empty";
+  }
+
+  .main {
+    height: 20vh !important;
+  }
+
+  .container div {
+    height: 10vh;
+  }
+}
