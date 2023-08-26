@@ -79,10 +79,24 @@ body {
   font-size: 30px;
 }
 
+.gallery__title button {
+  cursor: pointer;
+  background-color: #fff;
+  border: solid 1px #000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 10px 30px;
+}
+
+.gallery__title button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
 .gallery {
   display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-template-rows: 40vh 40vh;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 40vh);
   justify-content: space-between;
   gap: 20px;
 }
@@ -98,8 +112,7 @@ body {
 
 .gallery div:hover {
   color: #000;
-  /* backdrop-filter: blur(5px); */
-  background: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.8);
 }
 
 .earth {
@@ -139,4 +152,108 @@ body {
   font-size: 30px;
   font-family: "Josefin Sans", sans-serif;
   width: 20%;
+}
+
+@media screen and (max-width: 600px) {
+  .principal__section {
+    padding: 20px;
+    background: url("../assets/mobile/image-hero.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+  }
+
+  .nav__list {
+    display: none;
+  }
+
+  .hero div {
+    width: auto;
+  }
+
+  .hero div h1 {
+    font-size: 42px;
+  }
+
+  .main {
+    width: 375px;
+  }
+
+  .article__section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article__section > div > img {
+    width: 340px;
+  }
+
+  .article__container {
+    margin-left: 0;
+    padding: 0;
+    width: auto;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .article__container h2 {
+    font-size: 32px;
+    padding-bottom: 20px;
+  }
+
+  .article__container p {
+    width: 340px;
+    margin: auto;
+  }
+
+  .gallery__title {
+    justify-content: center;
+  }
+
+  .gallery__title button {
+    display: none;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 15vh);
+    margin: 20px;
+  }
+
+  .gallery div h3 {
+    font-size: 26px;
+    width: 50%;
+  }
+
+  .earth {
+    background: url("../assets/mobile/image-deep-earth.jpg");
+  }
+
+  .soccer {
+    background: url("../assets/mobile/image-soccer-team.jpg");
+  }
+
+  .arcade {
+    background: url("../assets/mobile/image-night-arcade.jpg");
+  }
+
+  .race {
+    background: url("../assets/mobile/image-grid.jpg");
+  }
+
+  .trip {
+    background: url("../assets/mobile/image-from-above.jpg");
+  }
+
+  .sky {
+    background: url("../assets/mobile/image-pocket-borealis.jpg");
+  }
+
+  .mars {
+    background: url("../assets/mobile/image-curiosity.jpg");
+  }
+
+  .wave {
+    background: url("../assets/mobile/image-fisheye.jpg");
+  }
 }
