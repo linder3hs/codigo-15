@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/static/Inter-Regular.ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/static/Inter-Bold.ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/static/Inter-ExtraBold.ttf");
+  font-weight: 800;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.bg-primary {
+  background-color: hsl(240, 100%, 5%) !important;
+}
+
+.text-principal {
+  font-weight: 800;
+  font-size: 70px;
+}
+
+.letter-3 {
+  letter-spacing: 3px;
+}
