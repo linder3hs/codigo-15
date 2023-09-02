@@ -7,7 +7,8 @@
   </head>
   <body>
     <main
-      class="bg-[url('./assets/home/background-home-mobile.jpg')] md:bg-[url('./assets/home/background-home-desktop.jpg')] h-screen bg-no-repeat bg-cover p-6"
+      id="main"
+      class="h-screen bg-no-repeat bg-cover p-6"
     >
       <nav class="flex justify-between items-center">
         <img src="./assets/shared/logo.svg" alt="" />
@@ -21,7 +22,7 @@
         >
           <ul class="flex text-white gap-14">
             <li class="cursor-pointer">00 Home</li>
-            <li class="cursor-pointer">01 Destination</li>
+            <li id="destination" class="cursor-pointer">01 Destination</li>
             <li class="cursor-pointer">02 Crew</li>
             <li class="cursor-pointer">03 Technology</li>
           </ul>
@@ -50,5 +51,6 @@
       </section>
     </main>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
