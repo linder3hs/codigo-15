@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reto 5</title>
+  </head>
+  <body>
+    <main
+      class="bg-[url('./assets/home/background-home-mobile.jpg')] md:bg-[url('./assets/home/background-home-desktop.jpg')] h-screen bg-no-repeat bg-cover p-6"
+    >
+      <nav class="flex justify-between items-center">
+        <img src="./assets/shared/logo.svg" alt="" />
+        <img
+          src="./assets/shared/icon-hamburger.svg"
+          alt=""
+          class="md:hidden"
+        />
+        <div
+          class="hidden md:flex py-8 px-24 -mr-6 backdrop-blur-xl bg-white/10"
+        >
+          <ul class="flex text-white gap-14">
+            <li class="cursor-pointer">00 Home</li>
+            <li class="cursor-pointer">01 Destination</li>
+            <li class="cursor-pointer">02 Crew</li>
+            <li class="cursor-pointer">03 Technology</li>
+          </ul>
+        </div>
+      </nav>
+      <section
+        class="text-white text-center mt-[40px] uppercase md:flex md:items-center h-4/5"
+      >
+        <div class="md:w-1/2 md:text-left md:m-auto">
+          <p class="text-lg">So you want to travel to</p>
+          <h1 class="text-8xl md:text-9xl mt-5">Space</h1>
+          <p class="normal-case mt-5 md:w-1/2">
+            Let's face it; if you want to go to space, you might as well
+            genuinely go to outer space and not hover kind of on the edge of it.
+            Well sit back, and relax because we'll give you a truly out of this
+            world experience!
+          </p>
+        </div>
+        <div class="m-auto">
+          <div
+            class="mt-20 m-auto md:mt-0 bg-white h-[150px] w-[150px] md:h-[300px] md:w-[300px] grid place-items-center rounded-full"
+          >
+            <h2 class="text-gray-950 text-xl md:text-3xl">Explore</h2>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>
