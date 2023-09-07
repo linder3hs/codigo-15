@@ -3,7 +3,6 @@ const destination = document.querySelector("#destination");
 const main = document.querySelector("#main");
 
 // variable que permita almacenar los fondos
-//
 let bgMobile = 'bg-[url("./assets/home/background-home-mobile.jpg")]';
 let bgDesktop = 'md:bg-[url("./assets/home/background-home-desktop.jpg")]';
 
