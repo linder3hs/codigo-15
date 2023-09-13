@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="bg-gray-100 h-screen grid place-content-center">
+      <h1 class="font-semibold text-2xl text-purple-950">Get started</h1>
+      <p class="text-sm my-3">Create your account now!</p>
+      <form id="form-register" action="" class="mt-5 flex flex-col gap-7">
+        <div>
+          <p class="text-sm text-purple-600">Full name</p>
+          <input
+            type="text"
+            placeholder="Nombre completo"
+            class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
+            name="full-name"
+          />
+        </div>
+        <div>
+          <p class="text-sm text-purple-600">Email</p>
+          <input
+            type="email"
+            placeholder="Correo"
+            class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
+            name="email"
+          />
+        </div>
+        <div>
+          <p class="text-sm text-purple-600">Password</p>
+          <input
+            type="password"
+            placeholder="Ingrese un password"
+            class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
+            name="password"
+          />
+        </div>
+        <div>
+          <p class="text-sm text-purple-600">Verify Password</p>
+          <input
+            type="password"
+            placeholder="Verifica tu password"
+            class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
+            name="verify-password"
+          />
+        </div>
+        <button class="bg-purple-800 text-white p-2 rounded mt-5">
+          Guardar
+        </button>
+      </form>
+    </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/forms.js"></script>
+  </body>
+</html>
