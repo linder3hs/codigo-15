@@ -1,19 +1,7 @@
 const form = document.querySelector("#form-register");
+const button = document.querySelector("button");
 
-function verifyIfAllInputsAreNotEmpty() {
-  // traer todos los inputs
-  const inputs = document.querySelectorAll("input");
-  const inputValues = {};
-
-  for (const input of inputs) {
-    inputValues[input.name] = input.value;
-  }
-
-  const validate = Object.values(inputValues).filter((value) => value).length === 4;
-
-  // buscamos al boton
-  const button = document.querySelector("button");
-
+function setStyleToButton(validate) {
   if (validate) {
     // activar boton
     button.classList.remove("bg-purple-800/50", "cursor-no-drop");
@@ -25,6 +13,18 @@ function verifyIfAllInputsAreNotEmpty() {
     button.classList.add("bg-purple-800/50", "cursor-no-drop");
     button.setAttribute("disabled", true);
   }
+}
+
+function verifyIfAllInputsAreNotEmpty() {
+  // traer todos los inputs
+  const inputs = document.querySelectorAll("input");
+
+  const validate =
+    Array.from(inputs)
+      .map((input) => input.value)
+      .filter((value) => value).length === 4;
+
+  setStyleToButton(validate);
 }
 
 function verifyIfEmptyInput(element) {
