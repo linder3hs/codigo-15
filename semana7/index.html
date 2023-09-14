@@ -17,6 +17,8 @@
             placeholder="Nombre completo"
             class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
             name="full-name"
+            data-validation="false"
+            onkeyup="verifyIfEmptyInput(this)"
           />
         </div>
         <div>
@@ -26,6 +28,7 @@
             placeholder="Correo"
             class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
             name="email"
+            onkeyup="verifyIfEmptyInput(this)"
           />
         </div>
         <div>
@@ -35,6 +38,7 @@
             placeholder="Ingrese un password"
             class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
             name="password"
+            onkeyup="verifyIfEmptyInput(this)"
           />
         </div>
         <div>
@@ -44,6 +48,7 @@
             placeholder="Verifica tu password"
             class="py-2 px-5 mt-3 rounded outline-none w-[350px]"
             name="verify-password"
+            onkeyup="verifyIfEmptyInput(this)"
           />
         </div>
         <button class="bg-purple-800 text-white p-2 rounded mt-5">
