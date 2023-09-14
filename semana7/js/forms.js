@@ -1,6 +1,35 @@
 const form = document.querySelector("#form-register");
 
+function verifyIfAllInputsAreNotEmpty() {
+  // traer todos los inputs
+  const inputs = document.querySelectorAll("input");
+  const inputValues = {};
+
+  for (const input of inputs) {
+    inputValues[input.name] = input.value;
+  }
+
+  const validate = Object.values(inputValues).filter((value) => value).length === 4;
+
+  // buscamos al boton
+  const button = document.querySelector("button");
+
+  if (validate) {
+    // activar boton
+    button.classList.remove("bg-purple-800/50", "cursor-no-drop");
+    button.classList.add("bg-purple-800", "cursor-pointer");
+    button.removeAttribute("disabled");
+  } else {
+    // deshabilitar boton
+    button.classList.remove("bg-purple-800", "cursor-pointer");
+    button.classList.add("bg-purple-800/50", "cursor-no-drop");
+    button.setAttribute("disabled", true);
+  }
+}
+
 function verifyIfEmptyInput(element) {
+  verifyIfAllInputsAreNotEmpty();
+
   const ifPAfterInput = document.querySelector(`#${element.name}`);
 
   if (element.value.length > 0) {
