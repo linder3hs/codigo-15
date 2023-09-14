@@ -1,22 +1,22 @@
 const form = document.querySelector("#form-register");
 
 function verifyIfEmptyInput(element) {
+  const ifPAfterInput = document.querySelector(`#${element.name}`);
+
   if (element.value.length > 0) {
     element.classList.remove("border", "border-red-500");
+    if (ifPAfterInput) ifPAfterInput.remove();
   } else {
-    if (element.dataset.validation !== "false") {
-      element.classList.add("border", "border-red-500");
+    if (element.dataset.validation === "false") return;
 
-      // Antes de agregar esto debemos verificar si es que existe
-      const ifPAfterInput = document.querySelector(`#${element.name}`);
+    element.classList.add("border", "border-red-500");
 
-      if (!ifPAfterInput) {
-        const p = document.createElement("p"); // <p></p>
-        p.textContent = "Completa este campo"; // <p>Completa este campo</p>
-        p.setAttribute("id", element.name); // <p id="full-name">Completa este campo</p>
-        p.classList.add("mt-1", "text-xs", "text-red-500");
-        element.after(p);
-      }
+    if (!ifPAfterInput) {
+      const p = document.createElement("p"); // <p></p>
+      p.textContent = "Completa este campo"; // <p>Completa este campo</p>
+      p.setAttribute("id", element.name); // <p id="full-name">Completa este campo</p>
+      p.classList.add("mt-1", "text-xs", "text-red-500");
+      element.after(p);
     }
   }
 }
