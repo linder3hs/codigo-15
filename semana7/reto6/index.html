@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <main class="h-screen bg-green-100">
+      <div class="h-[15vh] py-10 flex justify-center">
+        <img src="./assets/logo.svg" alt="" />
+      </div>
+      <div class="bg-white h-[85vh] rounded-t-3xl p-6">
+        <h2 class="font-semibold text-green-900">Bill</h2>
+        <div
+          id="container-bill"
+          class="flex items-center mt-3 p-3 rounded-md bg-green-100/50 cursor-text"
+        >
+          <img src="./assets/icon-dollar.svg" alt="" />
+          <input
+            id="input-bill"
+            type="text"
+            class="w-full text-right outline-none bg-transparent text-green-900 text-xl font-semibold"
+          />
+        </div>
+        <h2 class="font-semibold text-green-900 mt-5">Select Tip %</h2>
+        <div
+          class="grid grid-cols-2 gap-3 mt-3"
+          id="container-percentage"
+        ></div>
+      </div>
+    </main>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
