@@ -1,12 +1,38 @@
 const containerInputBill = document.querySelector("#container-input-bill");
+const containerInputPeople = document.querySelector("#container-input-people");
 const containerPercentage = document.querySelector("#container-percentage");
+
+let valuePercentage = 0;
+let currentSelect = null;
 
 function setFocusInput(element) {
   element.children[1].focus();
 }
 
+function removeGreenLight(element) {
+  element.classList.remove("bg-green-200");
+  element.classList.add("bg-[#00494d]");
+}
+
+function setButtonSelect(element) {
+  const spanValue = element.children[0].textContent;
+  const spanCurrentValue = currentSelect?.children[0].textContent;
+
+  if (currentSelect) removeGreenLight(currentSelect);
+
+  if (spanValue === spanCurrentValue) {
+    removeGreenLight(currentSelect);
+    currentSelect = null;
+  } else {
+    element.classList.remove("bg-[#00494d]");
+    element.classList.add("bg-green-200");
+    currentSelect = element;
+  }
+}
+
 function renderItemPercentage(value) {
   return `<div
+            onclick="setButtonSelect(this)"
             class="bg-[#00494d] hover:bg-green-100 hover:text-green-950 cursor-pointer text-white font-semibold text-xl rounded-md p-3 text-center"
           >
             <span>${value}</span>
@@ -44,4 +70,10 @@ containerInputBill.innerHTML = renderInput(
   "./assets/icon-dollar.svg",
   "0.0",
   "input-bill"
+);
+
+containerInputPeople.innerHTML = renderInput(
+  "./assets/icon-person.svg",
+  "0",
+  "input-people"
 );
