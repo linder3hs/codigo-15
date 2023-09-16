@@ -26,10 +26,12 @@ function setButtonSelect(element) {
   if (spanValue === spanCurrentValue) {
     removeGreenLight(currentSelect);
     currentSelect = null;
+    valuePercentage = 0;
   } else {
     element.classList.remove("bg-[#00494d]");
     element.classList.add("bg-green-200");
     currentSelect = element;
+    valuePercentage = Number(spanValue.replace("%", ""));
   }
 }
 
@@ -83,6 +85,7 @@ containerInputPeople.innerHTML = renderInput(
 );
 
 inputCustom.onkeyup = function (event) {
+  valuePercentage = Number(event.target.value);
   if (currentSelect) {
     removeGreenLight(currentSelect);
     currentSelect = null;
