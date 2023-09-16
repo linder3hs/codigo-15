@@ -17,6 +17,9 @@ function removeGreenLight(element) {
 function setButtonSelect(element) {
   const spanValue = element.children[0].textContent;
   const spanCurrentValue = currentSelect?.children[0].textContent;
+  const inputCustom = document.querySelector("input[name='custom']");
+
+  if (inputCustom?.value) inputCustom.value = "";
 
   if (currentSelect) removeGreenLight(currentSelect);
 
@@ -33,7 +36,7 @@ function setButtonSelect(element) {
 function renderItemPercentage(value) {
   return `<div
             onclick="setButtonSelect(this)"
-            class="bg-[#00494d] hover:bg-green-100 hover:text-green-950 cursor-pointer text-white font-semibold text-xl rounded-md p-3 text-center"
+            class="bg-[#00494d] cursor-pointer text-white font-semibold text-xl rounded-md p-3 text-center"
           >
             <span>${value}</span>
           </div>`;
@@ -65,6 +68,7 @@ function generatePercentageList() {
 }
 
 generatePercentageList();
+const inputCustom = document.querySelector("input[name='custom']");
 
 containerInputBill.innerHTML = renderInput(
   "./assets/icon-dollar.svg",
@@ -77,3 +81,10 @@ containerInputPeople.innerHTML = renderInput(
   "0",
   "input-people"
 );
+
+inputCustom.onkeyup = function (event) {
+  if (currentSelect) {
+    removeGreenLight(currentSelect);
+    currentSelect = null;
+  }
+};
