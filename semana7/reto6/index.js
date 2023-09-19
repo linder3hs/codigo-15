@@ -1,6 +1,9 @@
 const containerInputBill = document.querySelector("#container-input-bill");
 const containerInputPeople = document.querySelector("#container-input-people");
 const containerPercentage = document.querySelector("#container-percentage");
+const tipAmount = document.querySelector("#tip-amount");
+const totalText = document.querySelector("#total");
+const btnReset = document.querySelector("#btn-reset");
 
 let valuePercentage = 0;
 let currentSelect = null;
@@ -70,7 +73,6 @@ function generatePercentageList() {
 }
 
 generatePercentageList();
-const inputCustom = document.querySelector("input[name='custom']");
 
 containerInputBill.innerHTML = renderInput(
   "./assets/icon-dollar.svg",
@@ -84,10 +86,37 @@ containerInputPeople.innerHTML = renderInput(
   "input-people"
 );
 
+const inputCustom = document.querySelector("input[name='custom']");
+const inputBill = document.querySelector("input[name='input-bill']");
+const inputPeople = document.querySelector("input[name='input-people']");
+
 inputCustom.onkeyup = function (event) {
   valuePercentage = Number(event.target.value);
   if (currentSelect) {
     removeGreenLight(currentSelect);
     currentSelect = null;
   }
+};
+
+inputPeople.onkeyup = function () {
+  const bill = inputBill.value;
+  if (!valuePercentage || !bill) {
+    this.value = "";
+    alert("Debe completar los inputs");
+    return;
+  }
+
+  const total = (bill * valuePercentage) / 100;
+  const person = total / this.value;
+
+  tipAmount.textContent = `$ ${person.toFixed(2)}`;
+  totalText.textContent = `$ ${total.toFixed(2)}`;
+};
+
+btnReset.onclick = function () {
+  valuePercentage = 0;
+  inputBill.value = "";
+  inputPeople.value = "";
+  tipAmount.textContent = "$ 0.00";
+  totalText.textContent = "$ 0.00";
 };
