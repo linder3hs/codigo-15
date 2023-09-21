@@ -3,6 +3,27 @@ const input = document.querySelector("#input-pokemon");
 const imgPokemon = document.querySelector("#pokemon-img");
 const namePokemon = document.querySelector("#pokemon-name");
 const pokemonAbilities = document.querySelector("#pokemon-abilities");
+const stats = document.querySelector("#stats");
+
+new Chart(stats, {
+  type: "bar",
+  data: {
+    labels: [
+      "Attack",
+      "HP",
+      "defense",
+      "special-attack",
+      "special-defense",
+      "speed",
+    ],
+    datasets: [
+      {
+        label: "Pokemon data",
+        data: [40, 50, 20, 10, 30, 80],
+      },
+    ],
+  },
+});
 
 function renderItemList(name) {
   const li = document.createElement("li");
