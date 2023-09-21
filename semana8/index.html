@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="bg-red-500 h-screen px-6">
+      <form class="flex justify-center pt-10 gap-3" id="form">
+        <input
+          id="input-pokemon"
+          type="text"
+          placeholder="Buscar tu pokemon por nombre"
+          class="p-2 rounded outline-none border border-red-500 flex-1"
+          required
+        />
+        <button class="p-2 bg-yellow-500 font-semibold rounded text-base">
+          Buscar
+        </button>
+      </form>
+      <section class="bg-white py-3 mt-5 rounded flex justify-around">
+        <div class="text-center">
+          <img
+            id="pokemon-img"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            alt=""
+            width="200"
+          />
+          <h3 id="pokemon-name" class="text-xl font-semibold">Pikachu</h3>
+        </div>
+        <div>
+          <h4 class="font-bold">Habilidades</h4>
+          <ul class="mt-2" id="pokemon-abilities">
+            <li class="flex gap-2 items-center">
+              <img src="./assets/icons/check.svg" width="20" alt="" /> static
+            </li>
+            <li class="flex gap-2 items-center">
+              <img
+                src="./assets/icons/check.svg"
+                width="20"
+                alt=""
+              />lightning-rod
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
