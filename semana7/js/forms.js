@@ -82,4 +82,3 @@ form.onsubmit = function (event) {
     confirmButtonText: "Cerrar alerta",
   });
 };
-
