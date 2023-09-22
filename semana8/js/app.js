@@ -5,21 +5,14 @@ const namePokemon = document.querySelector("#pokemon-name");
 const pokemonAbilities = document.querySelector("#pokemon-abilities");
 const stats = document.querySelector("#stats");
 
-new Chart(stats, {
+const myChart = new Chart(stats, {
   type: "bar",
   data: {
-    labels: [
-      "Attack",
-      "HP",
-      "defense",
-      "special-attack",
-      "special-defense",
-      "speed",
-    ],
+    labels: [],
     datasets: [
       {
         label: "Pokemon data",
-        data: [40, 50, 20, 10, 30, 80],
+        data: [],
       },
     ],
   },
@@ -47,6 +40,7 @@ form.onsubmit = async function (event) {
 
   const response = await fetch(url);
   const pokemon = await response.json();
+
   namePokemon.textContent = pokemon.name;
   imgPokemon.src = pokemon.sprites.other["official-artwork"].front_default;
 
@@ -55,4 +49,11 @@ form.onsubmit = async function (event) {
   pokemon.abilities.forEach((item) => {
     pokemonAbilities.appendChild(renderItemList(item.ability.name));
   });
+
+  const labels = pokemon.stats.map((item) => item.stat.name);
+  const values = pokemon.stats.map((item) => item.base_stat);
+
+  myChart.data.labels = labels;
+  myChart.data.datasets[0].data = values;
+  myChart.update();
 };
