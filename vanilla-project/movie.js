@@ -2,9 +2,11 @@ const urlGenres = "https://moviesminidatabase.p.rapidapi.com/genres/";
 const urlMoviesByGenre =
   "https://moviesminidatabase.p.rapidapi.com/movie/byGen/";
 
+const urlMovieDetail = "https://moviesminidatabase.p.rapidapi.com/movie/id/";
+
 const options = {
   headers: {
-    "X-RapidAPI-Key": "4cc4c577cdmsh6e25517382b8781p16d967jsn992e2eeb5bdc",
+    "X-RapidAPI-Key": "0475a754dbmsh63a0e0f5f142493p1ed618jsn6ba90a2ecfe2",
     "X-RapidAPI-Host": "moviesminidatabase.p.rapidapi.com",
   },
 };
@@ -27,11 +29,15 @@ export async function getGenres(element) {
 }
 
 async function renderMovie(movie) {
+  const response = await fetch(`${urlMovieDetail}${movie.imdb_id}`, options);
+  const data = await response.json();
+  const movieData = data.results;
+
   return `
     <div>
-      <img class="w-[200px]" src="" />
+      <img class="w-[200px] h-[300px] object-cover" src="${movieData.banner}" />
       <h2 class="font-semibold text-xl mt-2">${movie.title}</h2>
-      <p></p>
+      <p class="truncate">${movieData.plot}</p>
     </div>
   `;
 }
