@@ -26,7 +26,7 @@ export async function getGenres(element) {
   });
 }
 
-function renderMovie(movie) {
+async function renderMovie(movie) {
   return `
     <div>
       <img class="w-[200px]" src="" />
@@ -49,8 +49,9 @@ export async function getGenreByURL() {
 
   const containerMovies = document.querySelector("#grid-movies");
 
-  data.results.forEach((movie) => {
+  data.results.forEach(async (movie) => {
     // insertar la informacion en el HTML
-    containerMovies.innerHTML += renderMovie(movie);
+    const movieData = await renderMovie(movie);
+    containerMovies.innerHTML += movieData;
   });
 }
