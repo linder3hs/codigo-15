@@ -6,14 +6,19 @@ const urlMovieDetail = "https://moviesminidatabase.p.rapidapi.com/movie/id/";
 
 const options = {
   headers: {
-    "X-RapidAPI-Key": "b264a22064msh1845bf46ce360dbp1f81b4jsn30a6371bad8d",
+    "X-RapidAPI-Key": "933035ad5dmsh113f9ac961914cap159e1djsnf468265d512f",
     "X-RapidAPI-Host": "moviesminidatabase.p.rapidapi.com",
   },
 };
 
-function getTextGenreByURL() {
-  return location.search.split("=")[1];
+async function makeRequest(url) {
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data;
 }
+
+const getTextGenreByURL = () => location.search.split("=")[1];
 
 function renderItemList(genre) {
   const genreFromURL = getTextGenreByURL();
@@ -32,17 +37,14 @@ function renderItemList(genre) {
 }
 
 export async function getGenres(element) {
-  const response = await fetch(urlGenres, options);
-  const data = await response.json();
-
-  data.results.forEach((item) => {
-    element.innerHTML += renderItemList(item.genre);
-  });
+  const data = await makeRequest(urlGenres);
+  data.results.forEach(
+    ({ genre }) => (element.innerHTML += renderItemList(genre))
+  );
 }
 
 async function renderMovie(movie) {
-  const response = await fetch(`${urlMovieDetail}${movie.imdb_id}`, options);
-  const data = await response.json();
+  const data = await makeRequest(`${urlMovieDetail}${movie.imdb_id}`);
   const movieData = data.results;
 
   return `
@@ -57,18 +59,13 @@ async function renderMovie(movie) {
 export async function getGenreByURL() {
   const genre = getTextGenreByURL();
 
-  // caso1: si hay un error
   if (!genre) return;
 
-  // caso2: cuando no hay error (hacemos la busqueda)
-  // https://moviesminidatabase.p.rapidapi.com/movie/byGen/genre
-  const response = await fetch(`${urlMoviesByGenre}${genre}`, options);
-  const data = await response.json();
+  const data = await makeRequest(`${urlMoviesByGenre}${genre}`);
 
   const containerMovies = document.querySelector("#grid-movies");
 
   data.results.slice(0, 6).forEach(async (movie) => {
-    // insertar la informacion en el HTML
     const movieData = await renderMovie(movie);
     containerMovies.innerHTML += movieData;
   });
