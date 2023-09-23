@@ -11,9 +11,21 @@ const options = {
   },
 };
 
+function getTextGenreByURL() {
+  return location.search.split("=")[1];
+}
+
 function renderItemList(genre) {
+  const genreFromURL = getTextGenreByURL();
+
+  let classToElement = "hover:text-blue-800 hover:font-semibold";
+
+  if (genre === genreFromURL) {
+    classToElement = "text-blue-800 font-semibold";
+  }
+
   return `
-    <p class="my-2 hover:text-blue-800 hover:font-semibold">
+    <p class="my-2 ${classToElement}">
       <a href="?genre=${genre}" class="cursor-pointer">${genre}</a>
     </p>
   `;
@@ -43,7 +55,7 @@ async function renderMovie(movie) {
 }
 
 export async function getGenreByURL() {
-  const genre = location.search.split("=")[1];
+  const genre = getTextGenreByURL();
 
   // caso1: si hay un error
   if (!genre) return;
