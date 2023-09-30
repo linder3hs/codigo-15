@@ -60,6 +60,22 @@ export default function App() {
 
   const handleInputBillChange = (event) => setInputBill(event.target.value);
 
+  const handleInputPeopleChange = (event) => {
+    if (!valuePercentage || !inputBill) {
+      alert("Debe completar los valores para el calculo");
+      return;
+    }
+
+    const inputPeople = event.target.value;
+    setInputPeple(inputPeople);
+    const bill = Number(inputBill);
+
+    const totalTip = (bill * (valuePercentage / 100)) / Number(inputPeople);
+    console.log(totalTip);
+    const totalPerPerson = bill / Number(inputPeople) + totalTip;
+    console.log(totalPerPerson);
+  };
+
   return (
     <main className="bg-green-100 h-screen">
       <Header />
@@ -95,6 +111,7 @@ export default function App() {
           placeholder="0"
           name="input-people"
           value={inputPeople}
+          onChange={handleInputPeopleChange}
         />
         <Summary />
       </Card>
