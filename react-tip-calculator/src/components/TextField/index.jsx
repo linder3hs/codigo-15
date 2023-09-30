@@ -27,7 +27,7 @@ export default function TextField({
       <img src={icons[icon]} alt="" />
       <input
         ref={inputRef}
-        type="text"
+        type="number"
         name={name}
         placeholder={placeholder}
         value={value}
