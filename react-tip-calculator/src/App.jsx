@@ -12,7 +12,7 @@ export default function App() {
   const [percentages, setPercetanges] = useState([
     {
       value: "5%",
-      isActive: true,
+      isActive: false,
     },
     {
       value: "10%",
@@ -32,6 +32,16 @@ export default function App() {
     },
   ]);
 
+  const handlePercatangeActive = (value) => {
+    const item = percentages.map((percentage) => {
+      return {
+        isActive: percentage.value === value,
+        value: percentage.value,
+      };
+    });
+    setPercetanges(item);
+  };
+
   return (
     <main className="bg-green-100 h-screen">
       <Header />
@@ -42,9 +52,10 @@ export default function App() {
         <div className="grid grid-cols-2 gap-3 mt-3">
           {percentages.map((percentage) => (
             <ItemPercentage
-              key={percentage}
+              key={percentage.value}
               value={percentage.value}
               isActive={percentage.isActive}
+              onElementClick={handlePercatangeActive}
             />
           ))}
           <TextField placeholder="Custom" name="input-custom" />
