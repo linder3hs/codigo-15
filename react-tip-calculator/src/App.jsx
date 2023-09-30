@@ -35,7 +35,7 @@ export default function App() {
   const handlePercatangeActive = (value) => {
     const item = percentages.map((percentage) => {
       return {
-        isActive: percentage.value === value,
+        isActive: !percentage.isActive && percentage.value === value,
         value: percentage.value,
       };
     });
