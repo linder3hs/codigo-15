@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Card,
   Header,
@@ -8,7 +9,28 @@ import {
 } from "./components";
 
 export default function App() {
-  const percentages = ["5%", "10%", "15%", "25%", "50%"];
+  const [percentages, setPercetanges] = useState([
+    {
+      value: "5%",
+      isActive: true,
+    },
+    {
+      value: "10%",
+      isActive: false,
+    },
+    {
+      value: "15%",
+      isActive: false,
+    },
+    {
+      value: "25%",
+      isActive: false,
+    },
+    {
+      value: "50%",
+      isActive: false,
+    },
+  ]);
 
   return (
     <main className="bg-green-100 h-screen">
@@ -19,7 +41,11 @@ export default function App() {
         <Title text="Select Tip %" />
         <div className="grid grid-cols-2 gap-3 mt-3">
           {percentages.map((percentage) => (
-            <ItemPercentage key={percentage} value={percentage} />
+            <ItemPercentage
+              key={percentage}
+              value={percentage.value}
+              isActive={percentage.isActive}
+            />
           ))}
           <TextField placeholder="Custom" name="input-custom" />
         </div>
