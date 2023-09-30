@@ -34,17 +34,22 @@ export default function App() {
 
   const [customValue, setCustomValue] = useState("");
 
-  const handlePercatangeActive = (value) => {
-    const item = percentages.map((percentage) => {
+  const handleMapPercetange = (value) => {
+    return percentages.map((percentage) => {
       return {
-        isActive: !percentage.isActive && percentage.value === value,
+        isActive: value && !percentage.isActive && percentage.value === value,
         value: percentage.value,
       };
     });
-    setPercetanges(item);
+  };
+
+  const handlePercatangeActive = (value) => {
+    setPercetanges(handleMapPercetange(value));
+    setCustomValue("");
   };
 
   const handleInputOnChange = (event) => {
+    setPercetanges(handleMapPercetange());
     setCustomValue(event.target.value);
   };
 
