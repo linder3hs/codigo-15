@@ -3,7 +3,13 @@ import { useRef } from "react";
 import dollarIcon from "../../assets/icon-dollar.svg";
 import personIcon from "../../assets/icon-person.svg";
 
-export default function TextField({ icon, name, placeholder }) {
+export default function TextField({
+  icon,
+  name,
+  placeholder,
+  value,
+  onChange,
+}) {
   const inputRef = useRef(null);
 
   const icons = {
@@ -24,6 +30,8 @@ export default function TextField({ icon, name, placeholder }) {
         type="text"
         name={name}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         className="w-full text-right outline-none bg-transparent text-green-900 text-xl font-semibold"
       />
     </div>

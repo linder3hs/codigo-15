@@ -32,6 +32,8 @@ export default function App() {
     },
   ]);
 
+  const [customValue, setCustomValue] = useState("");
+
   const handlePercatangeActive = (value) => {
     const item = percentages.map((percentage) => {
       return {
@@ -40,6 +42,10 @@ export default function App() {
       };
     });
     setPercetanges(item);
+  };
+
+  const handleInputOnChange = (event) => {
+    setCustomValue(event.target.value);
   };
 
   return (
@@ -58,7 +64,12 @@ export default function App() {
               onElementClick={handlePercatangeActive}
             />
           ))}
-          <TextField placeholder="Custom" name="input-custom" />
+          <TextField
+            placeholder="Custom"
+            name="input-custom"
+            value={customValue}
+            onChange={handleInputOnChange}
+          />
         </div>
         <Title text="Number of people" />
         <TextField icon="person" placeholder="0" name="input-people" />
