@@ -2,11 +2,16 @@
 import logo from "../../assets/netflix-logo.png";
 import { searchInNetflix } from "../../services";
 
-export default function Layout({ children, searchText, setSearchText }) {
+export default function Layout({
+  children,
+  searchText,
+  setSearchText,
+  setTitles,
+}) {
   const handleKeyUp = async (e) => {
     if (e.key === "Enter" && searchText) {
       const results = await searchInNetflix(searchText);
-      console.log(results);
+      setTitles(results.titles);
     }
   };
 
