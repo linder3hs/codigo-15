@@ -7,7 +7,7 @@ export default function App() {
   const [titles, setTitles] = useState([]);
 
   return (
-    <div className="bg-black/90 text-netflix-color-dark py-3 px-5">
+    <div className="bg-black/90 text-netflix-color-dark py-3 px-5 md:px-20 overflow-hidden">
       <Layout
         searchText={searchText}
         setSearchText={setSearchText}
@@ -19,7 +19,7 @@ export default function App() {
             titles.map((title) => (
               <>
                 <img
-                  className="rounded-sm cursor-pointer"
+                  className="rounded hover:scale-125 md:hover:scale-150 transition duration-500 cursor-pointer object-cover"
                   src={title.jawSummary.backgroundImage.url}
                 />
               </>
