@@ -67,9 +67,10 @@ export default function App() {
     }
 
     const inputPeople = event.target.value;
+    
     setInputPeple(inputPeople);
+    
     const bill = Number(inputBill);
-
     const totalTip = (bill * (valuePercentage / 100)) / Number(inputPeople);
     console.log(totalTip);
     const totalPerPerson = bill / Number(inputPeople) + totalTip;
