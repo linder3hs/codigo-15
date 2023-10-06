@@ -3,13 +3,20 @@ import { useState } from "react";
 import logo from "../../assets/netflix-logo.png";
 import { searchInNetflix } from "../../services";
 import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setTitles } from "../../slices/netflixSlice";
 
 export default function Layout() {
   const [searchText, setSearchText] = useState("");
 
+  // debemos crear una variable donde se almacene useDispatch
+  const dispatch = useDispatch();
+
   const handleKeyUp = async (e) => {
     if (e.key === "Enter" && searchText) {
       const results = await searchInNetflix(searchText);
+      // para que la funcion seTitle funciones tiene que estar envuelta en el dispatch
+      dispatch(setTitles(results.titles));
     }
   };
 
