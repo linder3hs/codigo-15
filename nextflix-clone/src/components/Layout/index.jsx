@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import logo from "../../assets/netflix-logo.png";
 import { searchInNetflix } from "../../services";
 import { Outlet } from "react-router-dom";
 
-export default function Layout({ searchText, setSearchText, setTitles }) {
+export default function Layout() {
+  const [searchText, setSearchText] = useState("");
+
   const handleKeyUp = async (e) => {
     if (e.key === "Enter" && searchText) {
       const results = await searchInNetflix(searchText);
-      setTitles(results.titles);
     }
   };
 
