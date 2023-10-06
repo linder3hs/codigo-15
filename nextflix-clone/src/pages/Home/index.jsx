@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Layout } from "../../components";
 
 export default function Home() {
   const [searchText, setSearchText] = useState("");

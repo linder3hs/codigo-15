@@ -12,7 +12,7 @@ export default function Layout({ searchText, setSearchText, setTitles }) {
   };
 
   return (
-    <div className="bg-black/90 text-netflix-color-dark py-3 px-5 md:px-20 overflow-hidden">
+    <div className="text-netflix-color-dark py-3 px-5 md:px-20 overflow-hidden">
       <div className="flex justify-between items-center">
         <img className="w-28 md:w-44 -ml-2 md:-ml-4" src={logo} alt="" />
         <input
