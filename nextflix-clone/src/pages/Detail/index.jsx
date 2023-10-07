@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { DetailListDescription } from "../../components";
 
 export default function Detail() {
   const { titleId } = useParams();
@@ -40,18 +41,18 @@ export default function Detail() {
             </p>
           </div>
           <div className="flex flex-col gap-4 w-[30%]">
-            <p className="text-white text-sm">
-              <span className="text-netflix-color-dark">Elenco:</span> Pepito,
-              Juanito, Oliver, más
-            </p>
-            <p className="text-white text-sm">
-              <span className="text-netflix-color-dark">Géneros:</span> Pepito,
-              Juanito, Oliver, más
-            </p>
-            <p className="text-white text-sm">
-              <span className="text-netflix-color-dark">Este titulo es:</span>{" "}
-              Surrealista, Escalofriante, Inquietante
-            </p>
+            <DetailListDescription
+              title="Elenco"
+              list={title.jawSummary.cast}
+            />
+            <DetailListDescription
+              title="Géneros"
+              list={title.jawSummary.genres}
+            />
+            <DetailListDescription
+              title="Este titulo es"
+              list={title.jawSummary.tags}
+            />
           </div>
         </div>
       </div>
