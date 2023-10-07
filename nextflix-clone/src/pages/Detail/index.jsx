@@ -11,8 +11,6 @@ export default function Detail() {
     )
   );
 
-  console.log(title);
-
   return (
     <>
       <div className="max-w-3xl m-auto">
@@ -37,16 +35,15 @@ export default function Detail() {
                 {title.jawSummary.maturity.rating.specificRatingReason}
               </span>
             </p>
-            <h2 className="font-semibold text-2xl my-4">T:E1 Secretos</h2>
+            <h2 className="font-semibold text-2xl my-4">
+              {title.jawSummary.title}
+            </h2>
             <p className="text-sm">
               {title.jawSummary.currentContextualSynopsis.text}
             </p>
           </div>
           <div className="flex flex-col gap-4 w-[30%]">
-            <DetailListDescription
-              title="Cast"
-              list={title.jawSummary.cast}
-            />
+            <DetailListDescription title="Cast" list={title.jawSummary.cast} />
             <DetailListDescription
               title="Genres"
               list={title.jawSummary.genres}
