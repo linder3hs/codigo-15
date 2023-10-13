@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="mt-10">
       <Card>
-        <FormTask />
+        <FormTask getTasks={getTasks} />
       </Card>
       {tasks.length > 0 &&
         tasks.map((task) => <Task key={task.id} text={task.text} />)}

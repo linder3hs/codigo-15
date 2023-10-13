@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { create } from "../../services";
 
-export default function FormTask() {
+export default function FormTask({ getTasks }) {
   const [textTask, setTextTask] = useState("");
 
   const handleInputChange = (e) => setTextTask(e.target.value);
@@ -27,11 +28,14 @@ export default function FormTask() {
     });
 
     setTextTask("");
+
     Swal.fire({
       title: "Success",
       text: "Se creo la tarea correctamente",
       icon: "success",
     });
+
+    await getTasks();
   };
 
   return (

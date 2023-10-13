@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
-import Card from "../Card";
-import {
-  CheckCircleIcon,
-  PencilIcon,
-  TrashIcon,
-} from "@heroicons/react/24/solid";
+import { Card, Edit } from "../../components";
+import { CheckCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 export default function Task({ text }) {
   return (
@@ -12,7 +8,7 @@ export default function Task({ text }) {
       <p>{text}</p>
       <div className="flex gap-3">
         <CheckCircleIcon className="h-6 w-6 text-green-500" />
-        <PencilIcon className="h-6 w-6 text-blue-500" />
+        <Edit />
         <TrashIcon className="h-6 w-6 text-red-500" />
       </div>
     </Card>
