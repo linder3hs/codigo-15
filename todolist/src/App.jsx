@@ -20,7 +20,7 @@ export default function App() {
         <FormTask getTasks={getTasks} />
       </Card>
       {tasks.length > 0 &&
-        tasks.map((task) => <Task key={task.id} text={task.text} />)}
+        tasks.map((task) => <Task key={task.id} task={task} />)}
     </div>
   );
 }
