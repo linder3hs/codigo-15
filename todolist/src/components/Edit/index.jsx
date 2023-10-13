@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { PencilIcon } from "@heroicons/react/24/solid";
-import { Dialog } from "@headlessui/react";
+import { Dialog, Listbox } from "@headlessui/react";
 import { TextField } from "../../components";
+
+const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
 
 export default function Edit({ task }) {
   const [open, setOpen] = useState(false);
+
+  const [category, setCategory] = useState(categories[0]);
 
   return (
     <>
@@ -28,6 +32,16 @@ export default function Edit({ task }) {
                 placeholder="Editar tarea"
                 className="rounded-r"
               />
+              <Listbox value={category} onChange={setCategory}>
+                <Listbox.Button>{category}</Listbox.Button>
+                <Listbox.Options>
+                  {categories.map((category) => (
+                    <Listbox.Option key={category} value={category}>
+                      {category}
+                    </Listbox.Option>
+                  ))}
+                </Listbox.Options>
+              </Listbox>
             </div>
           </Dialog.Panel>
         </div>
