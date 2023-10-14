@@ -10,8 +10,11 @@ const priorities = ["Baja", "Media", "Alto", "Urgente"];
 export default function Edit({ task }) {
   const [open, setOpen] = useState(false);
 
+  const [text, setText] = useState(task.text);
   const [category, setCategory] = useState(categories[0]);
   const [priority, setPriority] = useState(priorities[0]);
+
+  const handleChange = (e) => setText(e.target.value);
 
   return (
     <>
@@ -30,7 +33,8 @@ export default function Edit({ task }) {
             <Dialog.Title>Editar tarea: {task.text}</Dialog.Title>
             <form className="my-5">
               <TextField
-                value={task.text}
+                value={text}
+                onChange={handleChange}
                 placeholder="Editar tarea"
                 className="rounded-r"
               />
