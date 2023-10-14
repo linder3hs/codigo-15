@@ -5,11 +5,13 @@ import { Dialog } from "@headlessui/react";
 import { Select, TextField } from "../../components";
 
 const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
+const priorities = ["Baja", "Media", "Alto", "Urgente"];
 
 export default function Edit({ task }) {
   const [open, setOpen] = useState(false);
 
   const [category, setCategory] = useState(categories[0]);
+  const [priority, setPriority] = useState(priorities[0]);
 
   return (
     <>
@@ -37,6 +39,13 @@ export default function Edit({ task }) {
                   value={category}
                   onChange={setCategory}
                   items={categories}
+                />
+              </div>
+              <div className="mt-5">
+                <Select
+                  value={priority}
+                  onChange={setPriority}
+                  items={priorities}
                 />
               </div>
             </div>
