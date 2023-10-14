@@ -20,3 +20,15 @@ export async function read() {
   const data = await response.json();
   return data;
 }
+
+export async function update(id, body) {
+  const response = await fetch(`${URLApi}/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+    body: JSON.stringify(body),
+  });
+  const data = await response.json();
+  return data;
+}
