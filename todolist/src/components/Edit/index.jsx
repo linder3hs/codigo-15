@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import { Dialog } from "@headlessui/react";
-import { Select, TextField } from "../../components";
+import { Button, Select, TextField } from "../../components";
 
 const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
 const priorities = ["Baja", "Media", "Alto", "Urgente"];
@@ -28,7 +28,7 @@ export default function Edit({ task }) {
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
           <Dialog.Panel className="bg-white mx-auto w-full md:max-w-md rounded p-4">
             <Dialog.Title>Editar tarea: {task.text}</Dialog.Title>
-            <div className="my-5">
+            <form className="my-5">
               <TextField
                 value={task.text}
                 placeholder="Editar tarea"
@@ -48,7 +48,13 @@ export default function Edit({ task }) {
                   items={priorities}
                 />
               </div>
-            </div>
+              <div className="mt-5">
+                <Button
+                  text="Actualizar"
+                  className="rounded-l w-full text-lg font-semibold"
+                />
+              </div>
+            </form>
           </Dialog.Panel>
         </div>
       </Dialog>
