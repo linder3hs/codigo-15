@@ -26,7 +26,7 @@ export default function Edit({ task }) {
       >
         <div className="fixed inset-0 bg-black/30" />
         <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-          <Dialog.Panel className="bg-white mx-auto w-full min-h-[500px] md:max-w-md rounded p-4">
+          <Dialog.Panel className="bg-white mx-auto w-full  md:max-w-md rounded p-4">
             <Dialog.Title>Editar tarea: {task.text}</Dialog.Title>
             <div className="my-5">
               <TextField
