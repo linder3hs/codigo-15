@@ -5,7 +5,7 @@ import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 export default function Select({ value, onChange, items }) {
   return (
-    <div className="">
+    <>
       <Listbox value={value} onChange={onChange}>
         <div className="relative">
           <Listbox.Button className="w-full flex items-center justify-between border px-3 shadow-md py-3 rounded text-left">
@@ -16,7 +16,7 @@ export default function Select({ value, onChange, items }) {
           </Listbox.Button>
           <Transition
             as={Fragment}
-            leave="transition ease-in duration-500"
+            leave="transition ease-in duration-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
@@ -36,6 +36,6 @@ export default function Select({ value, onChange, items }) {
           </Transition>
         </div>
       </Listbox>
-    </div>
+    </>
   );
 }
