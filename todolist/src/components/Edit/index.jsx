@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { PencilIcon } from "@heroicons/react/24/solid";
-import { Dialog, Listbox, Transition } from "@headlessui/react";
-import { TextField } from "../../components";
-import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { Dialog } from "@headlessui/react";
+import { Select, TextField } from "../../components";
 
 const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
 
@@ -34,36 +33,11 @@ export default function Edit({ task }) {
                 className="rounded-r"
               />
               <div className="mt-5">
-                <Listbox value={category} onChange={setCategory}>
-                  <Listbox.Button className="w-full flex items-center justify-between border px-3 shadow-md py-3 rounded text-left">
-                    <span>{category}</span>
-                    <span>
-                      <ChevronUpDownIcon className="h-5 w-5" />
-                    </span>
-                  </Listbox.Button>
-                  <Transition
-                    as={Fragment}
-                    leave="transition ease-in duration-500"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <Listbox.Options className="w-full border mt-1 rounded">
-                      {categories.map((item) => (
-                        <Listbox.Option
-                          key={item}
-                          value={item}
-                          className={`py-2 px-3 hover:bg-green-200 hover:text-green-800 cursor-pointer ${
-                            item === category
-                              ? "bg-green-200 text-green-800"
-                              : "bg-white"
-                          }`}
-                        >
-                          {item}
-                        </Listbox.Option>
-                      ))}
-                    </Listbox.Options>
-                  </Transition>
-                </Listbox>
+                <Select
+                  value={category}
+                  onChange={setCategory}
+                  items={categories}
+                />
               </div>
             </div>
           </Dialog.Panel>
