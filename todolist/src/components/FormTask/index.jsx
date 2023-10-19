@@ -26,6 +26,8 @@ export default function FormTask({ getTasks }) {
     await create({
       text: textTask,
       status: "created",
+      category: null,
+      priority: null,
     });
 
     setTextTask("");

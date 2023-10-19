@@ -13,8 +13,8 @@ export default function Edit({ task, getTasks }) {
   const [open, setOpen] = useState(false);
 
   const [text, setText] = useState(task.text);
-  const [category, setCategory] = useState(categories[0]);
-  const [priority, setPriority] = useState(priorities[0]);
+  const [category, setCategory] = useState(task.category ?? categories[0]);
+  const [priority, setPriority] = useState(task.priority ?? priorities[0]);
 
   const handleChange = (e) => setText(e.target.value);
 
