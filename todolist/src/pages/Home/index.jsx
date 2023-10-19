@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Card, FormTask, Task } from "./components";
-import { read } from "./services";
+import { useState, useEffect } from "react";
+import { read } from "../../services";
+import { Card, FormTask, Task } from "../../components";
 
-export default function App() {
+export default function Home() {
   const [tasks, setTasks] = useState([]);
 
   const getTasks = async () => {

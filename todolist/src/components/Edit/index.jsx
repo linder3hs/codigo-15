@@ -20,12 +20,12 @@ export default function Edit({ task, getTasks }) {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-
-    await update(task.id, {
+    const body = {
       text,
       category,
       priority,
-    });
+    };
+    await update(task.id, body, "tasks");
     // alerta
     Swal.fire({
       title: "Success",
