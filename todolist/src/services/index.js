@@ -1,45 +1,17 @@
-// Funciones para nuestro CRUD
-const baseUrl = "https://65273bec917d673fd76d82a2.mockapi.io/";
+import { makeHttpRequest } from "./config";
 
 export async function create(body, url) {
-  const response = await fetch(`${baseUrl}${url}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-
-  const data = await response.json();
-
-  return data;
+  return await makeHttpRequest({ url, body, method: "POST" });
 }
 
 export async function read(url) {
-  const response = await fetch(`${baseUrl}${url}`);
-  const data = await response.json();
-  return data;
+  return await makeHttpRequest({ url });
 }
 
 export async function update(id, body, url) {
-  const response = await fetch(`${baseUrl}${url}/${id}`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: "PUT",
-    body: JSON.stringify(body),
-  });
-  const data = await response.json();
-  return data;
+  return await makeHttpRequest({ body, id, method: "PUT", url });
 }
 
 export async function destroy(id, url) {
-  const response = await fetch(`${baseUrl}${url}/${id}`, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method: "DELETE",
-  });
-  const data = await response.json();
-  return data;
+  return await makeHttpRequest({ id, url, method: "DELETE" });
 }
