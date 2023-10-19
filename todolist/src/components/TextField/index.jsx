@@ -4,10 +4,11 @@ export default function TextField({
   onChange,
   placeholder = "Escribe tu tarea",
   className,
+  type = "text",
 }) {
   return (
     <input
-      type="text"
+      type={type}
       value={value}
       onChange={onChange}
       className={`border w-full px-2 py-3 rounded-l outline-none ${className}`}
