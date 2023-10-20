@@ -24,21 +24,20 @@ export default function SignUp() {
   };
 
   const validateIfValuesHasEmpty = () => {
-    const errorsEmpty = {};
+    const empties = Object.keys(values)
+      .filter((value) => !values[value])
+      .map((value) => [value, "Este campo es requerido"]);
 
-    Object.entries(values)
-      .map(([key, value]) => !value && key)
-      .filter((value) => value)
-      .forEach((empty) => {
-        errorsEmpty[empty] = "Campo vacio";
-      });
+    if (empties.length === 0) {
+      setErrors({});
+      return;
+    }
 
-    setErrors(errorsEmpty);
+    setErrors(Object.fromEntries(empties));
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(values);
     validateIfValuesHasEmpty();
   };
 
@@ -54,31 +53,37 @@ export default function SignUp() {
               name="name"
               onChange={handleInputChange}
             />
-            <span className="text-red-500 mt-1">{errors.name}</span>
+            <span className="text-red-500 mt-1 text-sm">{errors.name}</span>
           </div>
-          <TextField
-            placeholder="Ingrese su apellido"
-            value={values.lastname}
-            name="lastname"
-            onChange={handleInputChange}
-          />
-          {errors.lastname}
-          <TextField
-            placeholder="Ingrese su email"
-            type="email"
-            value={values.email}
-            name="email"
-            onChange={handleInputChange}
-          />
-          {errors.email}
-          <TextField
-            placeholder="Ingrese su password"
-            type="password"
-            value={values.password}
-            name="password"
-            onChange={handleInputChange}
-          />
-          {errors.password}
+          <div>
+            <TextField
+              placeholder="Ingrese su apellido"
+              value={values.lastname}
+              name="lastname"
+              onChange={handleInputChange}
+            />
+            <span className="text-red-500 mt-1 text-sm">{errors.lastname}</span>
+          </div>
+          <div>
+            <TextField
+              placeholder="Ingrese su email"
+              type="email"
+              value={values.email}
+              name="email"
+              onChange={handleInputChange}
+            />
+            <span className="text-red-500 mt-1 text-sm">{errors.email}</span>
+          </div>
+          <div>
+            <TextField
+              placeholder="Ingrese su password"
+              type="password"
+              value={values.password}
+              name="password"
+              onChange={handleInputChange}
+            />
+            <span className="text-red-500 mt-1 text-sm">{errors.password}</span>
+          </div>
           <Button
             text="Crear cuenta"
             className="rounded-l w-full"
