@@ -19,6 +19,7 @@ export default function Form({
             name={input.name}
             onChange={handleInputChange}
             type={input.type ?? "text"}
+            className="rounded-r"
           />
           <span className="text-red-500 mt-1 text-sm">
             {errors[input.name]}
