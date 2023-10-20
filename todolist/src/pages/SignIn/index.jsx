@@ -1,27 +1,18 @@
-import { useState } from "react";
 import { Card, Form } from "../../components";
+import { inputs } from "./form";
+import { useForm } from "../../hooks/useForm";
 
 export default function SignIn() {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  });
+  const { values, errors, handleInputChange, validateIfValuesHasEmpty } =
+    useForm({
+      email: "",
+      password: "",
+    });
 
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-  });
-
-  const inputs = [
-    {
-      placeholder: "Email",
-      name: "email",
-    },
-    {
-      placeholder: "Password",
-      name: "password",
-    },
-  ];
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    validateIfValuesHasEmpty();
+  };
 
   return (
     <>
@@ -34,6 +25,8 @@ export default function SignIn() {
             values={values}
             errors={errors}
             textButton="Iniciar Sesión"
+            handleFormSubmit={handleSubmit}
+            handleInputChange={handleInputChange}
           />
         </Card>
       </div>
