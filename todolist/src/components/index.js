@@ -4,6 +4,7 @@ export { default as Card } from "./Card";
 
 export { default as Edit } from "./Edit";
 
+export { default as Form } from "./Form";
 export { default as FormTask } from "./FormTask";
 
 export { default as Select } from "./Select";

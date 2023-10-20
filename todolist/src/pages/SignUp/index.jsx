@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Card, TextField } from "../../components";
+import { Card, Form } from "../../components";
 import { inputs } from "./form";
 
 export default function SignUp() {
@@ -46,28 +46,14 @@ export default function SignUp() {
     <div className="h-screen flex items-center justify-center max-w-md mx-auto">
       <Card>
         <h1 className="text-2xl font-semibold my-5">Crear Cuenta</h1>
-        <form onSubmit={handleFormSubmit} className="mb-5 flex flex-col gap-5">
-          {inputs.map((input) => (
-            <div key={input.name}>
-              <TextField
-                placeholder={input.placeholder}
-                value={values[input.name]}
-                name={input.name}
-                onChange={handleInputChange}
-                type={input.type ?? "text"}
-              />
-              <span className="text-red-500 mt-1 text-sm">
-                {errors[input.name]}
-              </span>
-            </div>
-          ))}
-          <Button
-            text="Crear cuenta"
-            className="rounded-l w-full"
-            variant="secondary"
-            type="submit"
-          />
-        </form>
+        <Form
+          inputs={inputs}
+          errors={errors}
+          handleFormSubmit={handleFormSubmit}
+          handleInputChange={handleInputChange}
+          textButton="Crear cuenta"
+          values={values}
+        />
       </Card>
     </div>
   );
