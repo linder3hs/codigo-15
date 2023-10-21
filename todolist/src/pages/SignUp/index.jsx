@@ -1,9 +1,10 @@
 import { useForm } from "../../hooks/useForm";
-import { Card, Form } from "../../components";
-import { inputs } from "./form";
-import { create } from "../../services";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { saveUser } from "../../slices/userSlice";
+import { Card, Form } from "../../components";
+import { create } from "../../services";
+import { inputs } from "./form";
 
 export default function SignUp() {
   const { errors, values, handleInputChange, validateIfValuesHasEmpty } =
@@ -15,12 +16,14 @@ export default function SignUp() {
     });
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     validateIfValuesHasEmpty();
     const user = await create(values, "users");
     dispatch(saveUser(user));
+    navigate("/");
   };
 
   return (
