@@ -2,6 +2,8 @@ import { useForm } from "../../hooks/useForm";
 import { Card, Form } from "../../components";
 import { inputs } from "./form";
 import { create } from "../../services";
+import { useDispatch } from "react-redux";
+import { saveUser } from "../../slices/userSlice";
 
 export default function SignUp() {
   const { errors, values, handleInputChange, validateIfValuesHasEmpty } =
@@ -12,10 +14,13 @@ export default function SignUp() {
       password: "",
     });
 
+  const dispatch = useDispatch();
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     validateIfValuesHasEmpty();
-    await create(values, "users");
+    const user = await create(values, "users");
+    dispatch(saveUser(user));
   };
 
   return (
