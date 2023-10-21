@@ -1,6 +1,7 @@
 import { useForm } from "../../hooks/useForm";
 import { Card, Form } from "../../components";
 import { inputs } from "./form";
+import { create } from "../../services";
 
 export default function SignUp() {
   const { errors, values, handleInputChange, validateIfValuesHasEmpty } =
@@ -11,9 +12,10 @@ export default function SignUp() {
       password: "",
     });
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     validateIfValuesHasEmpty();
+    await create(values, "users");
   };
 
   return (
