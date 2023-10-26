@@ -1,7 +1,11 @@
 import { Card, Form } from "../../components";
 import { inputs } from "./form";
 import { useForm } from "../../hooks/useForm";
-// import { create } from "../../services";
+import { read } from "../../services";
+import { useDispatch } from "react-redux";
+import { saveUser } from "../../slices/userSlice";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function SignIn() {
   const { values, errors, handleInputChange, validateIfValuesHasEmpty } =
@@ -10,10 +14,41 @@ export default function SignIn() {
       password: "",
     });
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    validateIfValuesHasEmpty();
-    // await create(values, "users")
+    // verificar que los inputs esten llenos
+    if (!validateIfValuesHasEmpty()) return;
+    // busquemos en la db de usuario si el correo existe
+    const users = await read("users");
+    const user = users.find(
+      (u) => u.email.toLowerCase() === values.email.toLowerCase()
+    );
+
+    // el usuario no existe
+    if (!user) {
+      // mostrar alguna alerta de error
+      Swal.fire({
+        icon: "error",
+        text: "Email y/o password incorrecto",
+      });
+      return;
+    }
+
+    // el usuario existe, hay que comparar la contraseña
+    if (user.password !== values.password) {
+      Swal.fire({
+        icon: "error",
+        text: "Email y/o password incorrecto",
+      });
+      return;
+    }
+
+    // la informacion coincide y debemos enviarlo al home y crear la session
+    dispatch(saveUser(user));
+    navigate("/");
   };
 
   return (

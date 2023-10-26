@@ -19,10 +19,11 @@ export function useForm(inputs) {
 
     if (empties.length === 0) {
       setErrors({});
-      return;
+      return true;
     }
 
     setErrors(Object.fromEntries(empties));
+    return false;
   };
 
   return {

@@ -6,5 +6,6 @@ export const inputs = [
   {
     placeholder: "Password",
     name: "password",
+    type: "password",
   },
 ];
