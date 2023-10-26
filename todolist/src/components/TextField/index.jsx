@@ -12,6 +12,7 @@ export default function TextField({
       type={type}
       value={value}
       onChange={onChange}
+      aria-label={name}
       name={name}
       className={`border w-full px-2 py-3 rounded-l outline-none ${className}`}
       placeholder={placeholder}
