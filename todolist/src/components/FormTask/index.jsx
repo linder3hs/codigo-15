@@ -51,7 +51,9 @@ export default function FormTask({ getTasks }) {
 
   return (
     <>
-      <h2 className="font-semibold text-xl mt-3">Crear tu tarea</h2>
+      <h2 className="font-semibold text-xl mt-3" aria-label="Crear tu tarea">
+        Crear tu tarea
+      </h2>
       <form className="my-5 flex items-center" onSubmit={handleFormSubmit}>
         <TextField value={textTask} onChange={handleInputChange} />
         <Button type="submit" text="Crear" variant="secondary" />

@@ -21,7 +21,10 @@ export default function Form({
             type={input.type ?? "text"}
             className="rounded-r"
           />
-          <span className="text-red-500 mt-1 text-sm">
+          <span
+            className="text-red-500 mt-1 text-sm"
+            aria-label={errors[input.name]}
+          >
             {errors[input.name]}
           </span>
         </div>
