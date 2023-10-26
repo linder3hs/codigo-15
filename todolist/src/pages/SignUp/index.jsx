@@ -20,7 +20,7 @@ export default function SignUp() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    validateIfValuesHasEmpty();
+    if (!validateIfValuesHasEmpty()) return;
     const user = await create(values, "users");
     dispatch(saveUser(user));
     navigate("/");
