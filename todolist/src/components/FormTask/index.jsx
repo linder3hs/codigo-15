@@ -3,9 +3,13 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { create } from "../../services";
 import { Button, TextField } from "../../components";
+import { useSelector } from "react-redux";
+import { selectorUserId } from "../../selectors/userSelector";
 
 export default function FormTask({ getTasks }) {
   const [textTask, setTextTask] = useState("");
+
+  const userId = useSelector(selectorUserId);
 
   const handleInputChange = (e) => setTextTask(e.target.value);
 
@@ -29,6 +33,7 @@ export default function FormTask({ getTasks }) {
         status: "created",
         category: null,
         priority: null,
+        user_id: userId,
       },
       "tasks"
     );
