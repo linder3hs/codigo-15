@@ -13,6 +13,7 @@ export default function TextField({
       value={value}
       onChange={onChange}
       name={name}
+      aria-label={name}
       className={`border w-full px-2 py-3 rounded-l outline-none ${className}`}
       placeholder={placeholder}
     />
