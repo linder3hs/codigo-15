@@ -1,18 +1,9 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+/* eslint-disable no-undef */
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import App from "../App";
-
-// ejemplo de la respuesta de mockapi
-const mockUserResponse = {
-  id: 1,
-  name: "Pepe",
-  lastname: "Perez",
-  email: "pepe@gmail.com",
-  password: "pepe12345",
-  createdAt: "2023-10-25T22:50:32.142Z",
-  avatar:
-    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/559.jpg",
-};
+import { mockUserResponse } from "../mock/mockUser";
+import { tasks } from "../mock/mockTasks";
 
 describe("Render App component", () => {
   it("Test App flow", () => {
@@ -31,7 +22,7 @@ describe("Render App component", () => {
     expect(errors).toHaveLength(4);
   });
 
-  it("Test SignUp", () => {
+  it("Test SignUp", async () => {
     const response = {
       json: vi.fn().mockResolvedValue(mockUserResponse),
     };
@@ -54,5 +45,14 @@ describe("Render App component", () => {
 
     const button = screen.getByLabelText("Crear cuenta");
     fireEvent.click(button);
+
+    global.fetch = vi.fn().mockResolvedValue({
+      json: vi.fn().mockResolvedValue(tasks),
+    });
+
+    await waitFor(() => expect(window.location.pathname).toBe("/"));
+
+    const homeTitle = screen.getByText("Crear tu tarea");
+    expect(homeTitle).toBeInTheDocument();
   });
 });

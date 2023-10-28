@@ -1,0 +1,32 @@
+export const tasks = [
+  {
+    createdAt: "2023-10-25T11:21:47.128Z",
+    text: "refactor code",
+    status: "created",
+    category: null,
+    due_date: "due_date 1",
+    priority: null,
+    user_id: "1",
+    id: "1",
+  },
+  {
+    createdAt: "2023-10-26T11:21:47.128Z",
+    text: "write unit tests",
+    status: "created",
+    category: "testing",
+    due_date: "due_date 2",
+    priority: "high",
+    user_id: "1",
+    id: "2",
+  },
+  {
+    createdAt: "2023-10-27T11:21:47.128Z",
+    text: "add new feature",
+    status: "created",
+    category: "feature",
+    due_date: "due_date 3",
+    priority: "medium",
+    user_id: "1",
+    id: "3",
+  },
+];
