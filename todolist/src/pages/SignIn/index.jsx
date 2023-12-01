@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { saveUser } from "../../slices/userSlice";
 import { useNavigate } from "react-router-dom";
 import { findUser, showError } from "../../utils";
+import { create } from "../../services";
 
 export default function SignIn() {
   const { values, errors, handleInputChange, validateIfValuesHasEmpty } =
@@ -20,15 +21,18 @@ export default function SignIn() {
     event.preventDefault();
     if (!validateIfValuesHasEmpty()) return;
 
-    const user = await findUser("email", values.email);
+    const user = await create(values, "login")
+    console.log(user.data)
 
-    if (!user || user.password !== values.password) {
-      showError("Email y/o password incorrecto");
-      return;
-    }
+    // const user = await findUser("email", values.email);
 
-    dispatch(saveUser(user));
-    navigate("/");
+    // if (!user || user.password !== values.password) {
+    //   showError("Email y/o password incorrecto");
+    //   return;
+    // }
+
+    // dispatch(saveUser(user));
+    // navigate("/");
   };
 
   return (

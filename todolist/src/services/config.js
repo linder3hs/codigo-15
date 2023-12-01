@@ -1,4 +1,4 @@
-const baseUrl = "https://65273bec917d673fd76d82a2.mockapi.io/";
+const baseUrl = "http://127.0.0.1:5000/";
 
 export async function makeHttpRequest({ url, id, body, method = "GET" }) {
   const finalUrl = id ? `${url}/${id}` : url;
