@@ -9,8 +9,8 @@ export default function Home() {
   const userId = useSelector(selectorUserId);
 
   const getTasks = async () => {
-    const response = await read("tasks");
-    setTasks(response.filter((task) => task.user_id === userId));
+    const { data } = await read("tasks");
+    setTasks(data);
   };
 
   useEffect(() => {
