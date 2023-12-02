@@ -3,13 +3,20 @@ import { useSelector } from "react-redux";
 import { selectorUserId } from "../../selectors/userSelector";
 import { read } from "../../services";
 import { Card, FormTask, Task } from "../../components";
+import { showError } from "../../utils"
 
 export default function Home() {
   const [tasks, setTasks] = useState([]);
   const userId = useSelector(selectorUserId);
 
   const getTasks = async () => {
-    const { data } = await read("tasks");
+    const { data, ok } = await read(`tasks/${userId}`);
+
+    if (!ok) {
+      showError(data);
+      return
+    }
+
     setTasks(data);
   };
 

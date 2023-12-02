@@ -5,6 +5,7 @@ import { create } from "../../services";
 import { Button, TextField } from "../../components";
 import { useSelector } from "react-redux";
 import { selectorUserId } from "../../selectors/userSelector";
+import { showError } from "../../utils";
 
 export default function FormTask({ getTasks }) {
   const [textTask, setTextTask] = useState("");
@@ -26,17 +27,27 @@ export default function FormTask({ getTasks }) {
       return;
     }
 
-    // llamo a la funcion create
-    await create(
+    const currentDate = new Date();
+    const addFiveDays = currentDate.setDate(currentDate.getDate() + 5);
+    const formatYMD = new Date(addFiveDays).toISOString().slice(0, 10);
+
+    const { ok, data } = await create(
       {
-        text: textTask,
+        title: textTask,
         status: "created",
         category: null,
         priority: null,
         user_id: userId,
+        due_date: formatYMD,
+        is_done: false,
       },
       "tasks"
     );
+
+    if (!ok) {
+      showError(data);
+      return
+    }
 
     setTextTask("");
 
