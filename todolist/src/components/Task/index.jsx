@@ -3,6 +3,7 @@ import { Card, Edit } from "../../components";
 import { CheckCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 export default function Task({ task, getTasks }) {
+
   return (
     <Card className="mt-5 flex justify-between">
       <p>{task.title}</p>

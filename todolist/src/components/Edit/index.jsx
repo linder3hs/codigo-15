@@ -5,6 +5,7 @@ import { Dialog } from "@headlessui/react";
 import { Button, Select, TextField } from "../../components";
 import { update } from "../../services";
 import Swal from "sweetalert2";
+import { showError } from "../../utils";
 
 const categories = ["Hogar", "Trabajo", "Estudio", "Ocio"];
 const priorities = ["Baja", "Media", "Alto", "Urgente"];
@@ -12,7 +13,7 @@ const priorities = ["Baja", "Media", "Alto", "Urgente"];
 export default function Edit({ task, getTasks }) {
   const [open, setOpen] = useState(false);
 
-  const [text, setText] = useState(task.text);
+  const [text, setText] = useState(task.title);
   const [category, setCategory] = useState(task.category ?? categories[0]);
   const [priority, setPriority] = useState(task.priority ?? priorities[0]);
 
@@ -21,11 +22,17 @@ export default function Edit({ task, getTasks }) {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     const body = {
-      text,
+      title: text,
       category,
       priority,
     };
-    await update(task.id, body, "tasks");
+    const { data, ok } = await update(task.id, body, "tasks");
+
+    if (!ok) {
+      showError(data);
+      return;
+    }
+
     // alerta
     Swal.fire({
       title: "Success",
