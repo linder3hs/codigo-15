@@ -2,6 +2,8 @@ export { default as Button } from "./Button";
 
 export { default as Card } from "./Card";
 
+export { default as Delete } from "./Delete"
+
 export { default as Edit } from "./Edit";
 
 export { default as Form } from "./Form";
